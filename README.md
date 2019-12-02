@@ -48,7 +48,7 @@ The client application is built using React (w/ Redux) and Axios.
 
 ### API
 
-The REST-API is built using the Flask micro-framework and MongoDB. Authentication of the requests are performed using JWT.
+The REST-API is built using the Flask micro-framework and MongoDB. Authentication of the requests are performed using JWT and Validation of API requests is done using jsonschema.
 
 - Using Flask gives us the advantage of a lightweight framework, where we can include only the features we require. Thereby reducing overhead when compared to frameworks such as Django.
 - Flask app is created using an `application factory pattern` which allows for the easy creation of API for different environments. (ie. Development, Staging, Production ...)
