@@ -13,7 +13,7 @@
 
 ## Dependencies
 
-To run this application you are required to have installed `docker` and `yarn`. You can substitute `yarn` with `npm`.
+To run this application you are required to have installed `docker` and `yarn`. You may substitute `yarn` with `npm`.
 
 ## Usage
 
@@ -26,7 +26,7 @@ cd api
 docker-compose up --build
 ```
 
-On another terminal please run the following commands to start the Client. Substitute `yarn` with `npm` if you are using `npm`.
+On another terminal please run the following commands to start the Client. If you are using `npm`, remember to substitute `yarn` with `npm`.
 
 ```
 cd client
@@ -34,7 +34,7 @@ yarn install
 yarn start
 ```
 
-After both the API and Client are running, you can access the project at http://localhost:3000
+After both the API and Client are running, you can access the project at http://localhost:3000 on your browser.
 
 ## Information
 
@@ -43,16 +43,16 @@ After both the API and Client are running, you can access the project at http://
 The client application is built using React (w/ Redux) and Axios.
 
 - Using React allows us to build the client in a modular fashion, maximising code reusability.
-- Using Redux allows us to easily manage and share the state of the application across components
-- Using Axios allows us to make network requests to the API
+- Using Redux allows us to easily manage and share the state of the application across components.
+- Using Axios allows us to make network requests to the API.
 
 ### API
 
-The REST-API is built using the Flask micro-framework and MongoDB. Authentication of the requests are performed using JWT and Validation of API requests is done using jsonschema.
+The REST-API is built using the Flask micro-framework and MongoDB. Authentication is performed with the help of `JWT` and the validation of API requests is done using `jsonschema`.
 
 - Using Flask gives us the advantage of a lightweight framework, where we can include only the features we require. Thereby reducing overhead when compared to frameworks such as Django.
-- Flask app is created using an `application factory pattern` which allows for the easy creation of API for different environments. (ie. Development, Staging, Production ...)
-- Using MongoDB gives us the advantage of scaling the service horizontally in the future vs. scaling vertically with SQL options. Additionally, as it is SchemaLess it allows the application to rapidly add new properties to a `Session` object in the future with almost no modifications required to the source code.
+- The Flask app is created using an `application factory pattern` which allows us to easily create an app for different environments. (ie. Development, Staging, Production ...) This is especially useful when integrating with a CI/CD pipeline.
+- Using MongoDB gives us the advantage of scaling the service horizontally in the future rather than scaling vertically with SQL options. Additionally, as it is `SchemaLess` it allows the application to rapidly add new properties/details to a `Time Tracking Session` object in the future with almost no modifications required to the source code on the back-end.
 
 ### Docs
 
@@ -128,4 +128,4 @@ pytest
 
  - Convert tests for API Endpoints to user MockDB and not actual DevDB
  - Write tests for React Components
- - Switch to GraphQL with Graphene-Mongo and Relay
+ - Switch to GraphQL - incorporating Graphene-Mongo and Relay
