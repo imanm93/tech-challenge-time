@@ -35,11 +35,18 @@ class TimerSessionsView extends React.Component {
   }
 
   renderTimeSessionsView(sessions) {
-    return sessions.map((session, key) => {
+    if (sessions.length > 0) {
+      return sessions.map((session, key) => {
+        return (
+          <TimerSessionCard key={key} name={session.name} time={session.time} createdAt={session.createdAt} />
+        )
+      })
+    }
+    else {
       return (
-        <TimerSessionCard key={key} name={session.name} time={session.time} createdAt={session.createdAt} />
+        <h3>You have no sessions to view for this filter. Update filter using controls regenerate list.</h3>
       )
-    })
+    }
   }
 
   render() {
