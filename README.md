@@ -53,7 +53,7 @@ The REST-API is built using the Flask micro-framework and MongoDB. Authenticatio
 - Using Flask gives us the advantage of a lightweight framework, where we can include only the features we require. Thereby reducing overhead when compared to frameworks such as Django
 - Using MongoDB gives us the advantage of scaling the service horizontally in the future vs. scaling vertically with SQL options. Additionally, as it is SchemaLess it allows the application to rapidly add new properties to a `Session` object in the future with almost no modifications required to the source code.
 
-#### Docs
+### Docs
 
 **Endpoint** `POST http://127.0.0.1:5000/api/v1/user/register`
 
