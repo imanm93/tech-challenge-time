@@ -112,8 +112,19 @@ The REST-API is built using the Flask micro-framework and MongoDB. Authenticatio
 
 **Response** `200 OK`
 
+## Run Tests
+
+**Important** API has to be running (see above for instruction to start API) and PyTest should be installed locally using pip.
+
+To run the tests for the API please open another terminal from the root folder and enter the following commands.
+
+```
+cd api
+pytest
+```
+
 ## Further Development
 
- - Write tests for API Endpoints (PyTest)
+ - Convert tests for API Endpoints to user MockDB and not actual DevDB
  - Write tests for React Components
  - Switch to GraphQL with Graphene-Mongo and Relay
