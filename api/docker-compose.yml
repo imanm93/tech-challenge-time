@@ -1,0 +1,26 @@
+version: '3.3'
+services:
+
+  db:
+    image: "mongo"
+    volumes:
+      - type: volume
+        source: dbdata
+        target: /data/db
+
+  api:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/progressapi
+    depends_on:
+      - db
+    environment:
+      - JWT_SECRET_KEY=jwt_secret_key
+      - APPLICATION_MODE=DEV
+    expose:
+      - "5959"
+
+volumes:
+  dbdata:

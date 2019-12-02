@@ -1,28 +1,83 @@
-# Pento tech challenge
+# Pento Tech Challenge
 
-Thanks for taking the time to do our tech challenge. 
+@author: Iman Kalyan Majumdar
 
-The challenge is to build a small full stack web app, that can help a freelancer track their time.
-
-It should satisfy these user stories:
+## Requirements
 
 - As a user, I want to be able to start a time tracking session
 - As a user, I want to be able to stop a time tracking session
 - As a user, I want to be able to name my time tracking session
-- As a user, I want to be able to save my time tracking session when I am done with it
-- As a user, I want an overview of my sessions for the day, week and month
 - As a user, I want to be able to close my browser and shut down my computer and still have my sessions visible to me when I power it up again.
+- As a user, I want an overview of my sessions for the day, week and month
+- As a user, I want to be able to save my time tracking session when I am done with it
 
-## Getting started
+## Dependencies
 
-You can fork this repo and use the fork as a basis for your project. We don't have any requirements on what stack you use to solve the task, so there is nothing set up beforehand.
+To run this application you are required to have installed `docker` and `yarn`. You can substitute `yarn` with `npm`.
 
-## Timing
+## Usage
 
-- Don't spend more than a days work on this challenge. We're not looking for perfection, rather try to show us something special and have reasons for your decisions.
-- Get back to us when you have a timeline for when you are done.
+To use this application open two terminals from the root folder.
 
-## Notes
+On one terminal please run the following commands to start the API.
 
- - This is technically possible to implement only on the frontend, but please take the opportunity to show your skills on the entire stack 
- - Please focus more on code quality, building a robust service and such, than on the UI.
+```
+cd api
+docker-compose up --build
+```
+
+On another terminal please run the following commands to start the Client. Substitute `yarn` with `npm` if you are using `npm`.
+
+```
+cd client
+yarn install
+yarn start
+```
+
+After both the API and Client are running, you can access the project at http://localhost:3000
+
+## Information
+
+### Client
+
+The client application is built using React (w/ Redux) and Axios.
+
+- Using React allows us to build the client in a modular fashion, maximising code reusability.
+- Using Redux allows us to easily manage and share the state of the application across components
+- Using Axios allows us to make network requests to the API
+
+### API
+
+The REST-API is built using the Flask micro-framework and MongoDB. Authentication of the requests are performed using JWT.
+
+- Using Flask gives us the advantage of a lightweight framework, where we can include only the features we require. Thereby reducing overhead when compared to frameworks such as Django
+- Using MongoDB gives us the advantage of scaling the service horizontally in the future vs. scaling vertically with SQL options. Additionally, as it is SchemaLess it allows the application to rapidly add new properties to a `Session` object in the future with almost no modifications required to the source code.
+
+#### Docs
+
+**Endpoint** `POST http://127.0.0.1:5000/api/v1/user/register`
+**Request Body**
+```json
+{
+  "username": "string",
+  "password": "string"
+}
+```
+**Response**
+```json
+{
+  "user": {
+    "username": "string",
+    "refresh_token": "string",
+    "token": "string"
+  }
+}
+```
+
+
+
+## Further Development
+
+ - Write tests for API Endpoints (PyTest)
+ - Write tests for React Components
+ - Switch to GraphQL with Graphene-Mongo and Relay
