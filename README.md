@@ -56,6 +56,7 @@ The REST-API is built using the Flask micro-framework and MongoDB. Authenticatio
 #### Docs
 
 **Endpoint** `POST http://127.0.0.1:5000/api/v1/user/register`
+
 **Request Body**
 ```json
 {
@@ -63,6 +64,7 @@ The REST-API is built using the Flask micro-framework and MongoDB. Authenticatio
   "password": "string"
 }
 ```
+
 **Response**
 ```json
 {
@@ -74,7 +76,40 @@ The REST-API is built using the Flask micro-framework and MongoDB. Authenticatio
 }
 ```
 
+**Endpoint** `POST http://127.0.0.1:5000/api/v1/user/login`
 
+**Request Body**
+```json
+{
+  "username": "string",
+  "password": "string"
+}
+```
+
+**Response** `200 OK`
+
+**Endpoint** `GET http://127.0.0.1:5000/api/v1/sessions/<username>`
+
+**Response**
+```json
+{
+  "sessions": "list"
+}
+```
+
+**Endpoint** `POST http://127.0.0.1:5000/api/v1/sessions/new`
+
+**Request Body**
+```json
+{
+  "username": "string",
+  "name": "string",
+  "time": "number",
+  "createdAt": "string"
+}
+```
+
+**Response** `200 OK`
 
 ## Further Development
 
